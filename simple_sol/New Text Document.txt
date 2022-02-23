@@ -1,0 +1,35 @@
+from random import *
+def cross_over(s1, s2, knapsack):
+    print(s1, s2)
+def solutions_list(items, knapsack):
+    solutions=[]
+    for i in range(len(items)*5):
+        s=get_randomly_solution(items, knapsack)
+        if(s!=None):
+            solutions.append(s)
+    return solutions
+def solve(items, knapsack):
+    solutions=[]
+    for i in range(len(items)*5):
+        s=get_randomly_solution(items, knapsack)
+        if(s!=None):
+            solutions.append(s)
+    for i in range(len(solutions)):
+        print('The ', i, 'th solution=', solutions[i][0], 'And its profit=', solutions[i][1])
+    max_profit=solutions[0]
+    for i in range(1, len(solutions)):
+        if(solutions[i][1]>=max_profit[1]):max_profit=solutions[i]
+    print('The optimal solution=', max_profit[0],' And its profit=', max_profit[1])
+def get_randomly_solution(items, knapsack):
+    ran=[]
+    for i in range(len(items)):
+        ran.append(randint(0, 1))
+    return set_profit(ran, items, knapsack)
+def set_profit(ran, items, knapsack):
+    s1=0;s2=0;profit=0
+    for i in range(len(items)):
+        s1=s1+ran[i]*items[i].resource[0]
+        s2=s2+ran[i]*items[i].resource[1]
+        profit=profit+ran[i]*items[i].profit
+    if (s1<=knapsack.capacities[0] and s2<=knapsack.capacities[1]):
+        return ran, profit
