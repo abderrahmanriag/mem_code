@@ -1,0 +1,9 @@
+{
+    "editor.fontSize": 40,
+    "scm.inputFontSize": 25,
+    "debug.console.fontSize": 25,
+    "markdown.preview.fontSize": 25,
+    "terminal.integrated.fontSize": 40,
+    "terminal.integrated.fontFamily": "Times New Roman",
+    "editor.suggestFontSize": 25
+}
